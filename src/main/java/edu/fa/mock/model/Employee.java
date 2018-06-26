@@ -11,7 +11,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Admin implements Serializable{
+public class Employee implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,24 +20,24 @@ public class Admin implements Serializable{
 	private String password;
 	private String username;
 	
-	@OneToMany(mappedBy="admin")
-	private List<AdminRole> adminRole;
+	@OneToMany(mappedBy="employee")
+	private List<EmployeeRole> employeeRole;
 	
 	
-	public Admin(String email, String password, String username) {
+	public Employee(String email, String password, String username) {
 		super();
 		this.email = email;
 		this.password = password;
 		this.username = username;
 	}
-	public Admin(int id, String email, String password, String username) {
+	public Employee(int id, String email, String password, String username) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.username = username;
 	}
-	public Admin() {
+	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

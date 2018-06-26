@@ -18,7 +18,7 @@ public class Role implements Serializable{
 	private String rank;
 	
 	@OneToMany(mappedBy="role")
-	private List<AdminRole> adminRole;
+	private List<EmployeeRole> employeeRole;
 
 	public Role() {
 		super();

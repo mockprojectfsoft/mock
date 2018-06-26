@@ -9,12 +9,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class AdminRole implements Serializable{
+public class EmployeeRole implements Serializable{
 
 	@Id
 	@ManyToOne
-	@JoinColumn(name = "adminId")
-	private Admin admin;
+	@JoinColumn(name = "employeeId")
+	private Employee admin;
 	
 	@Id
 	@ManyToOne
@@ -22,17 +22,17 @@ public class AdminRole implements Serializable{
 	private Role role;
 
 	
-	public AdminRole(Admin admin, Role role) {
+	public EmployeeRole(Employee admin, Role role) {
 		super();
 		this.admin = admin;
 		this.role = role;
 	}
 
-	public Admin getAdmin() {
+	public Employee getAdmin() {
 		return admin;
 	}
 
-	public void setAdmin(Admin admin) {
+	public void setAdmin(Employee admin) {
 		this.admin = admin;
 	}
 

@@ -1,9 +1,9 @@
 package edu.fa.mock.dao;
 
-import edu.fa.mock.model.Admin;
+import edu.fa.mock.model.Employee;
 
 public interface AdminDao {
 	
-	Admin login(Admin admin);
+	Employee login(Employee admin);
 	
 }
