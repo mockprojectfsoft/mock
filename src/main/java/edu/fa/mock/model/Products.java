@@ -17,7 +17,6 @@ public class Products implements Serializable{
 	private int id;
 	private String name;
 	private String images;
-	private String imageList;
 	private float price;
 	private float discount;
 	private float instock;
@@ -31,6 +30,10 @@ public class Products implements Serializable{
 	@JoinColumn(name="categoryID")
 	private Category category;
 	
+	@ManyToOne
+	@JoinColumn(name="manufacturerID")
+	private Manufacturer manufacturer;
+	
 	public Products() {
 		super();
 	}
@@ -39,7 +42,6 @@ public class Products implements Serializable{
 		super();
 		this.name = name;
 		this.images = images;
-		this.imageList = imageList;
 		this.price = price;
 		this.discount = discount;
 		this.instock = instock;
@@ -56,7 +58,6 @@ public class Products implements Serializable{
 		this.id = id;
 		this.name = name;
 		this.images = images;
-		this.imageList = imageList;
 		this.price = price;
 		this.discount = discount;
 		this.instock = instock;
@@ -83,12 +84,6 @@ public class Products implements Serializable{
 	}
 	public void setImages(String images) {
 		this.images = images;
-	}
-	public String getImageList() {
-		return imageList;
-	}
-	public void setImageList(String imageList) {
-		this.imageList = imageList;
 	}
 	public float getPrice() {
 		return price;

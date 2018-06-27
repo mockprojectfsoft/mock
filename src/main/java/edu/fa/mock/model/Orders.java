@@ -18,6 +18,12 @@ public class Orders implements Serializable{
 	private float totalAmount;
 	private int status;
 	private String dateCreate;
+	private String shippingAdress;
+	private String shipDate;
+	
+	@ManyToOne
+	@JoinColumn(name="employeeId")
+	private User employees;
 	
 	@ManyToOne
 	@JoinColumn(name="customerID")
@@ -84,5 +90,22 @@ public class Orders implements Serializable{
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
+
+	public String getShippingAdress() {
+		return shippingAdress;
+	}
+
+	public void setShippingAdress(String shippingAdress) {
+		this.shippingAdress = shippingAdress;
+	}
+
+	public User getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(User employees) {
+		this.employees = employees;
+	}
+	
 	
 }

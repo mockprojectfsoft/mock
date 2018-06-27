@@ -11,7 +11,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Employee implements Serializable{
+public class User implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,23 +21,26 @@ public class Employee implements Serializable{
 	private String username;
 	
 	@OneToMany(mappedBy="employee")
-	private List<EmployeeRole> employeeRole;
+	private List<UserRole> employeeRole;
+	
+	@OneToMany(mappedBy="employees")
+	private List<Orders> orders;
 	
 	
-	public Employee(String email, String password, String username) {
+	public User(String email, String password, String username) {
 		super();
 		this.email = email;
 		this.password = password;
 		this.username = username;
 	}
-	public Employee(int id, String email, String password, String username) {
+	public User(int id, String email, String password, String username) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.username = username;
 	}
-	public Employee() {
+	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -65,4 +68,18 @@ public class Employee implements Serializable{
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	public List<UserRole> getEmployeeRole() {
+		return employeeRole;
+	}
+	public void setEmployeeRole(List<UserRole> employeeRole) {
+		this.employeeRole = employeeRole;
+	}
+	public List<Orders> getOrders() {
+		return orders;
+	}
+	public void setOrders(List<Orders> orders) {
+		this.orders = orders;
+	}
+	
+	
 }
